@@ -133,13 +133,13 @@ public final class CloudNet implements Executeable, Runnable, Reloadable {
 
         if (!optionSet.has("disable-modules"))
         {
-            System.out.println("Loading Modules...");
+            System.out.println("Lade Modules...");
             moduleManager.loadModules();
         }
 
         for (WrapperMeta wrapperMeta : config.getWrappers())
         {
-            System.out.println("Loading Wrapper " + wrapperMeta.getId() + " @ " + wrapperMeta.getHostName());
+            System.out.println("Lade Wrapper " + wrapperMeta.getId() + " @ " + wrapperMeta.getHostName());
             this.wrappers.put(wrapperMeta.getId(), new Wrapper(wrapperMeta));
         }
         //Packet Init
@@ -151,7 +151,7 @@ public final class CloudNet implements Executeable, Runnable, Reloadable {
             @Override
             public boolean isAccepted(ServerGroup value)
             {
-                System.out.println("Loading ServerGroup: " + value.getName());
+                System.out.println("Lade ServerGruppe: " + value.getName());
                 setupGroup(value);
                 return true;
             }
@@ -161,7 +161,7 @@ public final class CloudNet implements Executeable, Runnable, Reloadable {
             @Override
             public boolean isAccepted(ProxyGroup value)
             {
-                System.out.println("Loading ProxyGroup: " + value.getName());
+                System.out.println("Lade ProxyGruppe: " + value.getName());
                 setupProxy(value);
                 return true;
             }
@@ -244,7 +244,7 @@ public final class CloudNet implements Executeable, Runnable, Reloadable {
         }
 
         if (!optionSet.has("disable-modules"))
-            System.out.println("Enabling Modules...");
+            System.out.println("Aktiviere Module...");
         moduleManager.enableModules();
 
         //Event Init
@@ -260,7 +260,7 @@ public final class CloudNet implements Executeable, Runnable, Reloadable {
 
         if (!optionSet.has("disable-modules"))
         {
-            System.out.println("Disabling modules...");
+            System.out.println("Deaktiviere module...");
             this.moduleManager.disableModules();
         }
 
@@ -279,7 +279,7 @@ public final class CloudNet implements Executeable, Runnable, Reloadable {
         NetworkUtils.addAll(this.serverGroups, config.getServerGroups(), new Acceptable<ServerGroup>() {
             public boolean isAccepted(ServerGroup value)
             {
-                System.out.println("Loading server group: " + value.getName());
+                System.out.println("Lade Servergruppe: " + value.getName());
                 setupGroup(value);
                 return true;
             }
@@ -288,7 +288,7 @@ public final class CloudNet implements Executeable, Runnable, Reloadable {
         NetworkUtils.addAll(this.proxyGroups, config.getProxyGroups(), new Acceptable<ProxyGroup>() {
             public boolean isAccepted(ProxyGroup value)
             {
-                System.out.println("Loading proxy group: " + value.getName());
+                System.out.println("Lade Proxygruppe: " + value.getName());
                 setupProxy(value);
                 return true;
             }
@@ -301,7 +301,7 @@ public final class CloudNet implements Executeable, Runnable, Reloadable {
         if (!optionSet.has("disable-modules"))
             this.moduleManager.loadModules().enableModules();
 
-        System.out.println("Updating wrappers...");
+        System.out.println("Updating Wrappers...");
         for (Wrapper wrapper : wrappers.values())
             wrapper.updateWrapper();
 
@@ -324,12 +324,12 @@ public final class CloudNet implements Executeable, Runnable, Reloadable {
         {
             if (!version.equals(CloudNet.class.getPackage().getImplementationVersion()))
             {
-                System.out.println("Preparing update...");
+                System.out.println("Bereite update vor...");
                 webClient.update(version);
                 shutdown();
 
-            } else System.out.println("No updates were found!");
-        } else System.out.println("Failed to check for updates");
+            } else System.out.println("Keine Updates gefunden!");
+        } else System.out.println("Fehler beim überprüfen von Updatess");
     }
 
     @Deprecated
@@ -342,13 +342,13 @@ public final class CloudNet implements Executeable, Runnable, Reloadable {
 
         for (Wrapper wrapper : wrappers.values())
         {
-            System.out.println("Disconnecting wrapper " + wrapper.getServerId());
+            System.out.println("Der Wrapper " + wrapper.getServerId() + "hat die Verbindung getrennt!");
             wrapper.disconnct();
         }
 
         if (!optionSet.has("disable-modules"))
         {
-            System.out.println("Disabling Modules...");
+            System.out.println("Deaktiviere Module...");
             this.moduleManager.disableModules();
         }
         dbHandlers.getStatisticManager().cloudOnlineTime(startupTime);

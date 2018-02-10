@@ -11,6 +11,6 @@ public class JavaReqVersionException extends RuntimeException {
 
     public JavaReqVersionException()
     {
-        super("You must have the java version 8! Please check out your Java Version with the command \"java -version\"");
+        super("Du musst Java 8 haben, bitte Prüfe deine Version mit diesen Command \"java -version\"");
     }
 }

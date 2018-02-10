@@ -33,6 +33,6 @@ public class CommandClearCache extends Command {
             ex.printStackTrace();
         }
 
-        sender.sendMessage("The Cache was cleared!");
+        sender.sendMessage("Der Cache wurde geleert!");
     }
 }

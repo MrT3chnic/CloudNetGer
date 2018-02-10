@@ -143,12 +143,12 @@ public class CloudConfig {
         if (hostName.equals("127.0.0.1") || hostName.equalsIgnoreCase("127.0.1.1") || hostName.split("\\.").length != 4)
         {
             String input;
-            System.out.println("Please write the first Wrapper IP address:");
+            System.out.println("Bitte schreibe die IP Adresse vom Server:");
             while ((input = consoleReader.readLine()) != null)
             {
                 if ((input.equals("127.0.0.1") || input.equalsIgnoreCase("127.0.1.1") || input.split("\\.").length != 4))
                 {
-                    System.out.println("Please write the real ip address :)");
+                    System.out.println("Bitte schreibe die Richtige IP Adresse :)");
                     continue;
                 }
 
@@ -382,7 +382,7 @@ public class CloudConfig {
                 ServerGroup serverGroup = entry.getObject("group", ServerGroup.TYPE);
                 groups.put(serverGroup.getName(), serverGroup);
             } catch (Throwable ex) {
-                System.out.println("Cannot load servergroup file [" + file.getName() + "]");
+                System.out.println("Die Servergroup datei konnte nicht geladen werden [" + file.getName() + "]");
             }
         }
 

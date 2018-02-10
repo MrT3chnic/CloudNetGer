@@ -34,6 +34,6 @@ public class CommandClearCache extends Command {
                 }
             }
         });
-        sender.sendMessage("The caches of all wrappers were cleared");
+        sender.sendMessage("Der Cache wurde von den Wrappern geleert.");
     }
 }

@@ -136,8 +136,8 @@ public final class CloudNetWrapper implements Executeable, Runnable, ShutdownOnC
 
         if (key == null)
         {
-            System.out.println("Please copy the WRAPPER_KEY.cnd for authentication!");
-            System.out.println("The Wrapper stops in 5 seconds");
+            System.out.println("Bitte kopiere den WRAPPER_KEY.cnd für die Authentication!");
+            System.out.println("Der Wrapper stopt in 5 Sekunden");
             NetworkUtils.sleepUninterruptedly(2000);
             System.exit(0);
             return;
@@ -180,7 +180,7 @@ public final class CloudNetWrapper implements Executeable, Runnable, ShutdownOnC
 
         networkConnection.getPacketManager().registerHandler(PacketRC.TEST + 1, PacketInTestResult.class);
 
-        System.out.println("Trying to connect " + networkConnection.getConnectableAddress().getHostName() + ":" + networkConnection.getConnectableAddress().getPort());
+        System.out.println("Versuche Verbinden aufzubauen zu " + networkConnection.getConnectableAddress().getHostName() + ":" + networkConnection.getConnectableAddress().getPort());
         while (networkConnection.getConnectionTrys() < 5 && networkConnection.getChannel() == null)
         {
             networkConnection.tryConnect(optionSet.has("ssl"), new NetDispatcher(networkConnection, false), auth);
@@ -198,7 +198,7 @@ public final class CloudNetWrapper implements Executeable, Runnable, ShutdownOnC
         if (!Files.exists(Paths.get("local/server-icon.png")))
             FileCopy.insertData("files/server-icon.png", "local/server-icon.png");
 
-        System.out.println("Starting process queue... with " + wrapperConfig.getProcessQueueSize() + " server server");
+        System.out.println("Starte Warteschlange... mit " + wrapperConfig.getProcessQueueSize() + " server server");
         scheduler.runTaskRepeatSync(serverProcessQueue, 0, 20);
 
         //Server Handlers
@@ -257,12 +257,12 @@ public final class CloudNetWrapper implements Executeable, Runnable, ShutdownOnC
         {
             if (!version.equals(CloudNetWrapper.class.getPackage().getImplementationVersion()))
             {
-                System.out.println("Preparing update...");
+                System.out.println("Bereite update vor...");
                 webClient.update(version);
                 shutdown();
 
-            } else System.out.println("No updates found!");
-        } else System.out.println("Failed to check for updates");
+            } else System.out.println("Kein update gefunden!");
+        } else System.out.println("Fehler beim finden der updates");
 
     }
 
@@ -270,7 +270,7 @@ public final class CloudNetWrapper implements Executeable, Runnable, ShutdownOnC
     public boolean shutdown()
     {
         if (!RUNNING) return false;
-        System.out.println("Wrapper shutdown...");
+        System.out.println("Der Wrapper stoppt...");
 
         if (scheduler != null)
             scheduler.cancelAllTasks();
@@ -340,7 +340,7 @@ public final class CloudNetWrapper implements Executeable, Runnable, ShutdownOnC
         proxyGroups.clear();
         serverGroups.clear();
 
-        System.out.println("Wrapper try to connect to the CloudNet-Core");
+        System.out.println("Der Wrapper versucht sich zum CloudNet-Core zu Verbinden");
 
         try
         {

@@ -120,7 +120,7 @@ public final class NetworkManager {
         loginPlayer.setPlayerExecutor(CorePlayerExecutor.INSTANCE);
 
         CloudNet.getInstance().getEventManager().callEvent(new LoginEvent(loginPlayer));
-        System.out.println("Player [" + loginPlayer.getName() + "/" + loginPlayer.getUniqueId() + "/" + loginPlayer.getPlayerConnection().getHost() + "] is connected on " + loginPlayer.getProxy());
+        System.out.println("Der Spieler [" + loginPlayer.getName() + "/" + loginPlayer.getUniqueId() + "/" + loginPlayer.getPlayerConnection().getHost() + "] ist nun auf " + loginPlayer.getProxy() + "gejoint");
 
         this.sendAllUpdate(new PacketOutLoginPlayer(loginPlayer));
         this.sendAll(new PacketOutUpdateOnlineCount(getOnlineCount()));
@@ -134,7 +134,7 @@ public final class NetworkManager {
         CloudNet.getInstance().getEventManager().callEvent(new LogoutEvent(playerWhereAmI));
         try
         {
-            System.out.println("Player [" + playerWhereAmI.getName() + "/" + playerWhereAmI.getUniqueId() + "/" + playerWhereAmI.getPlayerConnection().getHost() + "] is disconnected on " + playerWhereAmI.getProxy());
+            System.out.println("Der Spieler [" + playerWhereAmI.getName() + "/" + playerWhereAmI.getUniqueId() + "/" + playerWhereAmI.getPlayerConnection().getHost() + "] ist nun gegangen von  " + playerWhereAmI.getProxy());
         } catch (Exception ex)
         {
         }
@@ -164,7 +164,7 @@ public final class NetworkManager {
     {
         CloudNet.getInstance().getEventManager().callEvent(new LogoutEventUnique(uniqueId));
         String name = CloudNet.getInstance().getDbHandlers().getNameToUUIDDatabase().get(uniqueId);
-        System.out.println("Player [" + name + "/" + uniqueId + "/] is disconnected on " + proxyServer.getServerId());
+        System.out.println("Der Spieler [" + name + "/" + uniqueId + "/] ist nun gegangen von " + proxyServer.getServerId());
 
         try
         {
@@ -179,7 +179,7 @@ public final class NetworkManager {
 
     public void handleServerAdd(MinecraftServer minecraftServer)
     {
-        System.out.println("Server [" + minecraftServer.getServerId() + "] is registered on CloudNet");
+        System.out.println("Der Server [" + minecraftServer.getServerId() + "] ist nun registiert in CloudNet");
         CloudNet.getInstance().getEventManager().callEvent(new ServerAddEvent(minecraftServer));
         this.sendAllUpdate(new PacketOutServerAdd(minecraftServer.getServerInfo()));
         StatisticManager.getInstance().addStartedServers();
@@ -188,7 +188,7 @@ public final class NetworkManager {
 
     public void handleServerAdd(CloudServer minecraftServer)
     {
-        System.out.println("CloudServer [" + minecraftServer.getServerId() + "] is registered on CloudNet");
+        System.out.println("Der CloudServer [" + minecraftServer.getServerId() + "] ist nun registiert in CloudNet");
         this.sendAllUpdate(new PacketOutServerAdd(minecraftServer.getServerInfo()));
         CloudNet.getInstance().getEventManager().callEvent(new CloudServerAddEvent(minecraftServer));
         StatisticManager.getInstance().addStartedServers();
@@ -219,21 +219,21 @@ public final class NetworkManager {
 
     public void handleServerRemove(MinecraftServer minecraftServer)
     {
-        System.out.println("Server [" + minecraftServer.getServerId() + "] is unregistered on CloudNet");
+        System.out.println("Der Server [" + minecraftServer.getServerId() + "] ist nun nicht mehr registiert in CloudNet");
         CloudNet.getInstance().getEventManager().callEvent(new ServerRemoveEvent(minecraftServer));
         this.sendAllUpdate(new PacketOutServerRemove(minecraftServer.getServerInfo()));
     }
 
     public void handleServerRemove(CloudServer minecraftServer)
     {
-        System.out.println("CloudServer [" + minecraftServer.getServerId() + "] is unregistered on CloudNet");
+        System.out.println("Der CloudServer [" + minecraftServer.getServerId() + "] ist nun nicht mehr registiert in CloudNet");
         CloudNet.getInstance().getEventManager().callEvent(new CloudServerRemoveEvent(minecraftServer));
         this.sendAllUpdate(new PacketOutServerRemove(minecraftServer.getServerInfo()));
     }
 
     public void handleProxyAdd(ProxyServer proxyServer)
     {
-        System.out.println("Server [" + proxyServer.getServerId() + "] is registered on CloudNet");
+        System.out.println("Der Proxy [" + proxyServer.getServerId() + "] ist nun registiert in CloudNet");
         this.sendToLobbys(new PacketOutProxyAdd(proxyServer.getProxyInfo()));
         CloudNet.getInstance().getEventManager().callEvent(new ProxyAddEvent(proxyServer));
         StatisticManager.getInstance().addStartedProxys();
@@ -242,7 +242,7 @@ public final class NetworkManager {
 
     public void handleProxyRemove(ProxyServer proxyServer)
     {
-        System.out.println("Server [" + proxyServer.getServerId() + "] is unregistered on CloudNet");
+        System.out.println("Der Proxy [" + proxyServer.getServerId() + "] ist nun nicht mehr registiert in CloudNet");
         this.sendAllUpdate(new PacketOutProxyRemove(proxyServer.getProxyInfo()));
         CloudNet.getInstance().getEventManager().callEvent(new ProxyRemoveEvent(proxyServer));
 
@@ -250,7 +250,7 @@ public final class NetworkManager {
 
     public void handleCommandExecute(PlayerCommandExecution playerCommandExecutor)
     {
-        CloudNet.getLogger().info("Player [" + playerCommandExecutor.getName() + "] executed command [" + playerCommandExecutor.getCommandLine() + "]");
+        CloudNet.getLogger().info("Der Spieler [" + playerCommandExecutor.getName() + "] führt diesen Command aus [" + playerCommandExecutor.getCommandLine() + "]");
         CloudNet.getInstance().getEventManager().callEvent(new CommandExecutionEvent(playerCommandExecutor));
         StatisticManager.getInstance().playerCommandExecutions();
     }
@@ -262,7 +262,7 @@ public final class NetworkManager {
         this.sendAllUpdate(new PacketOutUpdatePlayer(cloudPlayer));
 
         if (cloudPlayer.getServer() != null)
-            System.out.println("Player [" + cloudPlayer.getName() + "/" + cloudPlayer.getUniqueId() + "/] update [server=" + cloudPlayer.getServer() + ", proxy=" + cloudPlayer.getProxy() + ", address=" + cloudPlayer.getPlayerConnection().getHost() + "]");
+            System.out.println("Der Spieler [" + cloudPlayer.getName() + "/" + cloudPlayer.getUniqueId() + "/] geht auf [server=" + cloudPlayer.getServer() + ", proxy=" + cloudPlayer.getProxy() + ", address=" + cloudPlayer.getPlayerConnection().getHost() + "]");
     }
 
     public void handleCustomChannelMessage(String channel, String message, Document document, PacketSender packetSender)

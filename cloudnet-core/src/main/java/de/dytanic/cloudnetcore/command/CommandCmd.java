@@ -38,7 +38,7 @@ public class CommandCmd extends Command {
                             stringBuilder.append(args[i]).append(" ");
                         }
                         minecraftServer.getWrapper().writeServerCommand(stringBuilder.substring(0, stringBuilder.length() - 1), minecraftServer.getServerInfo());
-                        sender.sendMessage("Sending command to " + minecraftServer.getServiceId().getServerId() + " with [\"" + stringBuilder.substring(0, stringBuilder.length() -1) + "\"]");
+                        sender.sendMessage("Sende command zu " + minecraftServer.getServiceId().getServerId() + " mit [\"" + stringBuilder.substring(0, stringBuilder.length() -1) + "\"]");
                         return;
                     }
                 }
@@ -53,7 +53,7 @@ public class CommandCmd extends Command {
                             stringBuilder.append(args[i]).append(" ");
                         }
                         minecraftServer.getWrapper().writeProxyCommand(stringBuilder.substring(0, stringBuilder.length() - 1), minecraftServer.getProxyInfo());
-                        sender.sendMessage("Sending command to " + minecraftServer.getServiceId().getServerId() + " with [\"" + stringBuilder.substring(0, stringBuilder.length() -1) + "\"]");
+                        sender.sendMessage("Sende command zu " + minecraftServer.getServiceId().getServerId() + " mit [\"" + stringBuilder.substring(0, stringBuilder.length() -1) + "\"]");
                         return;
                     }
                 }
@@ -61,7 +61,7 @@ public class CommandCmd extends Command {
         }
         else
         {
-            sender.sendMessage("cmd <name> <command> | Executes a command, either from a proxy or game server");
+            sender.sendMessage("cmd <name> <command> | Sende befehl an einen Proxy oder Server");
         }
     }
 }

@@ -38,7 +38,7 @@ public final class CommandInfo extends Command {
                                 "GameId: " + minecraftServer.getServiceId().getGameId(),
                                 "Group: " + minecraftServer.getServiceId().getGroup(),
                                 " ",
-                                "Connection: " + (minecraftServer.getChannel() != null ? "connected" : "not connected"),
+                                "Connection: " + (minecraftServer.getChannel() != null ? "Verbunden" : "Nicht Verbunden"),
                                 "State: " + (minecraftServer.getServerInfo().isOnline() ? "Online" : "Offline") + " | " + minecraftServer.getServerInfo().getServerState(),
                                 "Online: " + minecraftServer.getServerInfo().getOnlineCount() + "/" + minecraftServer.getServerInfo().getMaxPlayers(),
                                 "Motd: " + minecraftServer.getServerInfo().getMotd(),
@@ -62,7 +62,7 @@ public final class CommandInfo extends Command {
                                 "GameId: " + proxyServer.getServiceId().getGameId(),
                                 "Group: " + proxyServer.getServiceId().getGroup(),
                                 " ",
-                                "Connection: " + (proxyServer.getChannel() != null ? "connected" : "not connected"),
+                                "Connection: " + (proxyServer.getChannel() != null ? "Verbunden" : "Nicht Verbunden"),
                                 "State: " + (proxyServer.getProxyInfo().isOnline() ? "Online" : "Offline"),
                                 "Online: " + proxyServer.getProxyInfo().getOnlineCount(),
                                 " ",
@@ -82,7 +82,7 @@ public final class CommandInfo extends Command {
                                 " ",
                                 "WrapperId: " + wrapper.getServerId(),
                                 " ",
-                                "Connection: " + (wrapper.getChannel() != null ? "connected" : "not connected"),
+                                "Connection: " + (wrapper.getChannel() != null ? "Verbunden" : "Nicht Verbunden"),
                                 "Servers started: " + wrapper.getServers().size(),
                                 "Proxys started: " + wrapper.getProxys().size(),
                                 " ",
@@ -100,9 +100,9 @@ public final class CommandInfo extends Command {
                 break;
             default:
                 sender.sendMessage(
-                        "info SERVER <server> | monitor all informations about a game server",
-                        "info PROXY <proxy> | monitor all informations about a proxy server",
-                        "info WRAPPER <wrapper-id> | monitor all informations about a wrapper"
+                        "info SERVER <server> | Zeigt alle Infomationen zu dem GameServer",
+                        "info PROXY <proxy> | Zeigt alle Infomationen zu dem ProxyServer",
+                        "info WRAPPER <wrapper-id> | Zeigt alle Infomationen zu dem Wrapper"
                 );
                 break;
         }

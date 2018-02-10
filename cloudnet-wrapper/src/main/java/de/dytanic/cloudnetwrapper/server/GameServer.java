@@ -130,7 +130,7 @@ public class GameServer implements ServerDispatcher {
                             urlConnection.connect();
                             System.out.println("Downloading " + url.getName() + ".jar");
                             Files.copy(urlConnection.getInputStream(), Paths.get("local/cache/web_plugins/" + url.getName() + ".jar"));
-                            System.out.println("Download was completed successfully!");
+                            System.out.println("Download war Erfolgreich!");
                         } catch (Exception ex)
                         {
                             ex.printStackTrace();
@@ -185,7 +185,7 @@ public class GameServer implements ServerDispatcher {
                             urlConnection.connect();
                             System.out.println("Downloading " + url.getName() + ".jar");
                             Files.copy(urlConnection.getInputStream(), Paths.get("local/cache/web_plugins/" + url.getName() + ".jar"));
-                            System.out.println("Download was completed successfully!");
+                            System.out.println("Download war Erfolgreich!");
                         } catch (Exception ex)
                         {
                             ex.printStackTrace();
@@ -328,12 +328,12 @@ public class GameServer implements ServerDispatcher {
     {
 
         kill();
-        System.out.println("Server " + toString() + " was killed and restart...");
+        System.out.println("Der Server " + toString() + " wurde gekillt und wird wieder gestartet...");
         try
         {
             startProcess();
             startupTimeStamp = System.currentTimeMillis();
-            System.out.println("Server " + toString() + " restarted now!");
+            System.out.println("Der Server " + toString() + " startet neu!");
         } catch (Exception e)
         {
             e.printStackTrace();
@@ -390,7 +390,7 @@ public class GameServer implements ServerDispatcher {
 
         CloudNetWrapper.getInstance().getServers().remove(getServiceId().getServerId());
         CloudNetWrapper.getInstance().getNetworkConnection().sendPacket(new PacketOutRemoveServer(serverInfo));
-        System.out.println("Server " + toString() + " was stopped");
+        System.out.println("Der Server " + toString() + " wurde gestoppt");
 
         try
         {
@@ -458,7 +458,7 @@ public class GameServer implements ServerDispatcher {
             }
         } else
         {
-            System.out.println("Copying template from " + this.serverProcess.getMeta().getServiceId() + " to local directory...");
+            System.out.println("Kopiere template von " + this.serverProcess.getMeta().getServiceId() + " zu dem local Verzeichnis...");
 
             try
             {
@@ -469,7 +469,7 @@ public class GameServer implements ServerDispatcher {
             {
             }
 
-            System.out.println("Template " + template.getName() + " was copied!");
+            System.out.println("Das Template " + template.getName() + " wurde Kopiert!");
         }
     }
 
@@ -558,7 +558,7 @@ public class GameServer implements ServerDispatcher {
                 {
                     Files.createDirectories(Paths.get(groupTemplates));
                     TemplateLoader templateLoader = new TemplateLoader(template.getUrl(), groupTemplates + "/template.zip");
-                    System.out.println("Downloading template for " + this.serverProcess.getMeta().getServiceId().getGroup());
+                    System.out.println("Downloading template für " + this.serverProcess.getMeta().getServiceId().getGroup());
                     templateLoader.load();
                     templateLoader.unZip(groupTemplates);
                 }
@@ -578,7 +578,7 @@ public class GameServer implements ServerDispatcher {
                             .append(CloudNetWrapper.getInstance().getWrapperConfig().getWebPort())
                             .append("/cloudnet/api/v1/download").substring(0)
                             , groupTemplates + "/template.zip", CloudNetWrapper.getInstance().getSimpledUser(), template, serverGroup.getName(), custom);
-                    System.out.println("Downloading template for " + this.serverProcess.getMeta().getServiceId().getGroup());
+                    System.out.println("Downloading template für " + this.serverProcess.getMeta().getServiceId().getGroup());
                     templateLoader.load();
                     templateLoader.unZip(groupTemplates);
                 }
@@ -617,7 +617,7 @@ public class GameServer implements ServerDispatcher {
                 {
                     Files.createDirectories(Paths.get(groupTemplates));
                     TemplateLoader templateLoader = new TemplateLoader(template.getUrl(), groupTemplates + "/template.zip");
-                    System.out.println("Downloading template for " + this.serverProcess.getMeta().getServiceId().getGroup());
+                    System.out.println("Downloading template für " + this.serverProcess.getMeta().getServiceId().getGroup());
                     templateLoader.load();
                     templateLoader.unZip(groupTemplates);
                 }
@@ -636,7 +636,7 @@ public class GameServer implements ServerDispatcher {
                             .append(CloudNetWrapper.getInstance().getWrapperConfig().getWebPort())
                             .append("/cloudnet/api/v1/download").substring(0)
                             , groupTemplates + "/template.zip", CloudNetWrapper.getInstance().getSimpledUser(), template, serverGroup.getName(), custom);
-                    System.out.println("Downloading template for " + this.serverProcess.getMeta().getServiceId().getGroup());
+                    System.out.println("Downloading template für " + this.serverProcess.getMeta().getServiceId().getGroup());
                     templateLoader.load();
                     templateLoader.unZip(groupTemplates);
                 }

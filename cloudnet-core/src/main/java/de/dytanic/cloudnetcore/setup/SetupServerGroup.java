@@ -41,7 +41,7 @@ public class SetupServerGroup {
                     @Override
                     public void cancel()
                     {
-                        System.out.println("Setup cancelled!");
+                        System.out.println("Setup abgebrochen!");
                     }
                 })
                 .setupComplete(new ISetupComplete() {
@@ -104,55 +104,55 @@ public class SetupServerGroup {
                         {
                             wrapper.updateWrapper();
                         }
-                        commandSender.sendMessage("The server group " + serverGroup.getName() + " is now created!");
+                        commandSender.sendMessage("Die Servergruppe " + serverGroup.getName() + " wurde Erstellt!");
                     }
                 })
-                .request(new SetupRequest("memory", "How many MB RAM should the server group have?", "Specified Memory is invalid", SetupResponseType.NUMBER, new Catcher<Boolean, String>() {
+                .request(new SetupRequest("memory", "Wie viel RAM soll die Servergruppe haben? (in MB angeben)", "Der Ram ist ungültig", SetupResponseType.NUMBER, new Catcher<Boolean, String>() {
                     @Override
                     public Boolean doCatch(String key)
                     {
                         return NetworkUtils.checkIsNumber(key) && Integer.parseInt(key) > 64;
                     }
                 }))
-                .request(new SetupRequest("startup", "How many servers should always be online?", "Specified startup count is invalid", SetupResponseType.NUMBER, new Catcher<Boolean, String>() {
+                .request(new SetupRequest("startup", "Wie viele Server sollen immer Online sein?", "Die Anzahl ist ungültig", SetupResponseType.NUMBER, new Catcher<Boolean, String>() {
                     @Override
                     public Boolean doCatch(String key)
                     {
                         return true;
                     }
                 }))
-                .request(new SetupRequest("percent", "How full does the server have to be until a new server is started? (In Percent)?", "Specified percent count is invalid", SetupResponseType.NUMBER, new Catcher<Boolean, String>() {
+                .request(new SetupRequest("percent", "Wie viele Spieler müssen auf dem Server sein, bis ein neuer Server gestaret wurde? (Anzahl in Prozent)", "Die Prozent zahl ist ungültig", SetupResponseType.NUMBER, new Catcher<Boolean, String>() {
                     @Override
                     public Boolean doCatch(String key)
                     {
                         return NetworkUtils.checkIsNumber(key) && Integer.parseInt(key) <= 100;
                     }
                 }))
-                .request(new SetupRequest("mode", "Which server group mode should be used? [STATIC, STATIC_LOBBY, LOBBY, DYNAMIC]", "Specified server group mode is invalid", SetupResponseType.STRING, new Catcher<Boolean, String>() {
+                .request(new SetupRequest("mode", "Welchen Groupmode soll die Gruppe haben? [STATIC, STATIC_LOBBY, LOBBY, DYNAMIC]", "Der Gruopmode ist ungültig", SetupResponseType.STRING, new Catcher<Boolean, String>() {
                     @Override
                     public Boolean doCatch(String key)
                     {
                         return key.equalsIgnoreCase("STATIC") || key.equalsIgnoreCase("STATIC_LOBBY") || key.equalsIgnoreCase("LOBBY") || key.equalsIgnoreCase("DYNAMIC");
                     }
                 }))
-                .request(new SetupRequest("type", "Which servergroup type should be used? [BUKKIT, CAULDRON, GLOWSTONE]", "Specified group type is invalid", SetupResponseType.STRING, new Catcher<Boolean, String>() {
+                .request(new SetupRequest("type", "Welche Servergruppe soll genutzt werden? [BUKKIT, CAULDRON, GLOWSTONE]", "Specified group type is invalid", SetupResponseType.STRING, new Catcher<Boolean, String>() {
                     @Override
                     public Boolean doCatch(String key)
                     {
                         return key.equals("BUKKIT") || key.equals("GLOWSTONE") || key.equals("CAULDRON");
                     }
                 }))
-                .request(new SetupRequest("template", "What is the backend of the group default template? [\"LOCAL\" for the wrapper local | \"MASTER\" for the master backend]", "Specified string is invalid", SetupResponseType.STRING, new Catcher<Boolean, String>() {
+                .request(new SetupRequest("template", "Wo soll das Template liegen? [\"LOCAL\" für im Wrapper | \"MASTER\" für im Master template]", "Die Angabe ist ungültig", SetupResponseType.STRING, new Catcher<Boolean, String>() {
                     @Override
                     public Boolean doCatch(String key)
                     {
                         return key.equals("MASTER") || key.equals("LOCAL");
                     }
                 }))
-                .request(new SetupRequest("onlineGroup", "How many servers should be online if 100 players are online in the group?", "Specified string is invalid", SetupResponseType.NUMBER, null))
-                .request(new SetupRequest("onlineGlobal", "How many servers should be online if 100 global players are online?", "Specified string is invalid", SetupResponseType.NUMBER, null))
+                .request(new SetupRequest("onlineGroup", "Wie viele Server sollen ansein wenn 100 Spieler sich in der Gruppe befinden?", "Die Zahl ist ungültig", SetupResponseType.NUMBER, null))
+                .request(new SetupRequest("onlineGlobal", "Wie viele Server sollen ansein wenn 100 Spieler sich auf dem Netzwerk befinden?", "Die Zahl ist ungültig", SetupResponseType.NUMBER, null))
 
-                .request(new SetupRequest("wrapper", "Which wrappers should be used for this group?", "Specified string is invalid", SetupResponseType.STRING, new Catcher<Boolean, String>() {
+                .request(new SetupRequest("wrapper", "Auf welchen Wrapper soll die Gruppe sein?", "Die Angabe ist ungültig", SetupResponseType.STRING, new Catcher<Boolean, String>() {
                     @Override
                     public Boolean doCatch(String key)
                     {

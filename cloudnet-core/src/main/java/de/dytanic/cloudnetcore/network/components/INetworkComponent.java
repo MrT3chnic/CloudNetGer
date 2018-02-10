@@ -23,7 +23,7 @@ public interface INetworkComponent extends PacketSender, ChannelUser {
 
     default void sendPacket(Packet packet)
     {
-        CloudNet.getLogger().debug("Sending Packet " + packet.getClass().getSimpleName() + " to " + getServerId());
+        CloudNet.getLogger().debug("Sende Packet " + packet.getClass().getSimpleName() + " an " + getServerId());
 
         if (getChannel() == null) return;
         if (getChannel().eventLoop().inEventLoop())

@@ -30,7 +30,7 @@ public final class CloudNetServer
         {
             if (optionSet.has("ssl"))
             {
-                CloudNet.getLogger().debug("Enabling SSL Context for service requests");
+                CloudNet.getLogger().debug("Aktiviere SSL Context für Service anfragen");
                 SelfSignedCertificate ssc = new SelfSignedCertificate();
                 sslContext = SslContext.newServerContext(ssc.certificate(), ssc.privateKey());
             }
@@ -54,18 +54,18 @@ public final class CloudNetServer
                     .childHandler(this);
 
             CloudNet.getLogger().debug("Using " + (Epoll.isAvailable() ? "Epoll native transport" : "NIO transport"));
-            CloudNet.getLogger().debug("Try to bind to " + connectableAddress.getHostName() + ":" + connectableAddress.getPort() + "...");
+            CloudNet.getLogger().debug("Versuche zu binden " + connectableAddress.getHostName() + ":" + connectableAddress.getPort() + "...");
             ChannelFuture channelFuture = serverBootstrap.bind(connectableAddress.getHostName(), connectableAddress.getPort()).addListener(new ChannelFutureListener() {
                 @Override
                 public void operationComplete(ChannelFuture channelFuture) throws Exception
                 {
                     if (channelFuture.isSuccess())
                     {
-                        System.out.println("CloudNet is listening @" + connectableAddress.getHostName() + ":" + connectableAddress.getPort());
+                        System.out.println("CloudNet hört auf @" + connectableAddress.getHostName() + ":" + connectableAddress.getPort());
                         CloudNet.getInstance().getCloudServers().add(CloudNetServer.this);
                     } else
                     {
-                        System.out.println("Failed to bind @" + connectableAddress.getHostName() + ":" + connectableAddress.getPort());
+                        System.out.println("Fehler beim Binden @" + connectableAddress.getHostName() + ":" + connectableAddress.getPort());
                     }
                 }
             }).addListener(ChannelFutureListener.CLOSE_ON_FAILURE).addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
@@ -87,7 +87,7 @@ public final class CloudNetServer
     @Override
     protected void initChannel(Channel channel) throws Exception
     {
-        System.out.println("Channel [" + channel.remoteAddress().toString() + "] connecting...");
+        System.out.println("Channel [" + channel.remoteAddress().toString() + "] verbindet...");
 
         ChannelConnectEvent channelConnectEvent = new ChannelConnectEvent(false, channel);
         CloudNet.getInstance().getEventManager().callEvent(channelConnectEvent);

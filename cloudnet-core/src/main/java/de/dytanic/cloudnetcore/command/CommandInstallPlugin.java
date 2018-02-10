@@ -30,14 +30,14 @@ public class CommandInstallPlugin extends Command {
                 if(minecraftServer != null && minecraftServer.getChannel() != null)
                 {
                     minecraftServer.sendCustomMessage("cloudnet_internal", "install_plugin", new Document("name", args[1]).append("url", args[2]));
-                    sender.sendMessage("Plugin will install on " + args[0] + "...");
+                    sender.sendMessage("Das Plugin wir auf " + args[0] + "installiert ...");
                 }
                 else {
-                    sender.sendMessage("Server doesn't exist");
+                    sender.sendMessage("Der Server existiert nicht!");
                 }
                 break;
             default:
-                sender.sendMessage("installplugin <server> <name> <url>");
+                sender.sendMessage("installplugin <server> <name> <url> | Du kannst ein Plugin auf ein Server intallieren");
                 break;
         }
     }

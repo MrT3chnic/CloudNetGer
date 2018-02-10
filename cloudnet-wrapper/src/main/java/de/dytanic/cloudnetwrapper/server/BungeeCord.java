@@ -158,7 +158,7 @@ public class BungeeCord implements ServerDispatcher {
                     }
 
                     TemplateLoader templateLoader = new TemplateLoader(proxyProcessMeta.getUrl(), path + "/template.zip");
-                    System.out.println("Downloading template for " + this.proxyProcessMeta.getServiceId().getServerId());
+                    System.out.println("Downloading template für " + this.proxyProcessMeta.getServiceId().getServerId());
                     templateLoader.load();
                     templateLoader.unZip(path);
                 } else
@@ -234,7 +234,7 @@ public class BungeeCord implements ServerDispatcher {
                     FileCopy.copyFileToDirectory(new File("local/cache/web_plugins/" + plugin.getName() + ".jar"), new File(path + "/plugins"));
 
                 TemplateLoader templateLoader = new TemplateLoader(proxyProcessMeta.getUrl(), "local/templates/" + proxyGroup.getName() + "/template.zip");
-                System.out.println("Downloading template for " + this.proxyProcessMeta.getServiceId().getServerId());
+                System.out.println("Downloading template für " + this.proxyProcessMeta.getServiceId().getServerId());
                 templateLoader.load();
                 templateLoader.unZip(path);
             } else
@@ -333,7 +333,7 @@ public class BungeeCord implements ServerDispatcher {
                     url.connect();
                     Files.copy(url.getInputStream(), Paths.get("local/ViaVersion-Proxied.jar"));
                     ((HttpURLConnection) url).disconnect();
-                    System.out.println("Download complete successfully!");
+                    System.out.println("Download war Erfolgreich!");
                 } catch (Exception ex)
                 {
 
@@ -374,7 +374,7 @@ public class BungeeCord implements ServerDispatcher {
         commandBuilder.append("-XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:MaxPermSize=256M -XX:-UseAdaptiveSizePolicy -Dio.netty.leakDetectionLevel=DISABLED -Dfile.encoding=UTF-8 -Dio.netty.maxDirectMemory=0 -Dio.netty.recycler.maxCapacity=0 -Dio.netty.recycler.maxCapacity.default=0 -Djline.terminal=jline.UnsupportedTerminal -DIReallyKnowWhatIAmDoingISwear=true -Xmx" + proxyProcessMeta.getMemory() + "M -jar BungeeCord.jar -o true -p");
 
         CloudNetWrapper.getInstance().getNetworkConnection().sendPacket(new PacketOutAddProxy(proxyInfo, proxyProcessMeta));
-        System.out.println("Proxy " + toString() + " started in [" + (System.currentTimeMillis() - startupTime) + " milliseconds]");
+        System.out.println("Der Proxy " + toString() + " ist in [" + (System.currentTimeMillis() - startupTime) + " millisekunden gestartet]");
 
         this.instance = Runtime.getRuntime().exec(commandBuilder.substring(0).split(" "), null, new File(path));
         CloudNetWrapper.getInstance().getProxys().put(this.proxyProcessMeta.getServiceId().getServerId(), this);
@@ -432,7 +432,7 @@ public class BungeeCord implements ServerDispatcher {
 
         CloudNetWrapper.getInstance().getProxys().remove(getServiceId().getServerId());
         CloudNetWrapper.getInstance().getNetworkConnection().sendPacket(new PacketOutRemoveProxy(proxyInfo));
-        System.out.println("Proxy " + toString() + " was stopped");
+        System.out.println("Der Proxy " + toString() + " wurde gestoppt");
 
         try
         {

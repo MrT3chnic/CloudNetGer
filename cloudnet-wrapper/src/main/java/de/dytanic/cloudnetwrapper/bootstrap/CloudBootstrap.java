@@ -47,7 +47,6 @@ public class CloudBootstrap {
         optionParser.accepts("ssl");
         optionParser.accepts("systemTimer");
         optionParser.accepts("noconsole");
-        optionParser.accepts("systemTimer");
         optionParser.accepts("debug");
         optionParser.accepts("disable-autoupdate");
         optionParser.accepts("disallow_bukkit_download");
@@ -111,7 +110,7 @@ public class CloudBootstrap {
 
         if (!optionSet.has("noconsole"))
         {
-            System.out.println("Use the command \"help\" for further information!");
+            System.out.println("Benutze \"help\" für mehr Informationen!");
             String commandLine;
 
             while (true)
@@ -121,7 +120,7 @@ public class CloudBootstrap {
                 {
                     if (!cloudNetWrapper.getCommandManager().dispatchCommand(commandLine))
                     {
-                        System.out.println("Command not found. Use the command \"help\" for further information!");
+                        System.out.println("Command nicht gefunden. Benutze \"help\" für mehr Informationen!");
                     }
                 }
             }catch (Exception ex) {

@@ -59,7 +59,7 @@ public class CommandScreen extends Command {
                     ServiceId serviceId = CloudNet.getInstance().getScreenProvider().getMainServiceId();
                     CloudNet.getInstance().getScreenProvider().disableScreen(serviceId.getServerId());
                     CloudNet.getInstance().getScreenProvider().setMainServiceId(null);
-                    sender.sendMessage("You left the screen session");
+                    sender.sendMessage("Du hast die Screen session verlassen");
                     return;
                 }
                 break;
@@ -79,7 +79,7 @@ public class CommandScreen extends Command {
                         }
 
                         minecraftServer.getWrapper().enableScreen(minecraftServer.getServerInfo());
-                        sender.sendMessage("You joined the screen session of " + minecraftServer.getServerId());
+                        sender.sendMessage("Du bist der Screen session von " + minecraftServer.getServerId() +" beigetreten");
                         CloudNet.getInstance().getScreenProvider().setMainServiceId(minecraftServer.getServiceId());
                     }
                     return;
@@ -98,7 +98,7 @@ public class CommandScreen extends Command {
                         }
 
                         minecraftServer.getWrapper().enableScreen(minecraftServer.getProxyInfo());
-                        sender.sendMessage("You joined the screen session of " + minecraftServer.getServerId());
+                        sender.sendMessage("Du bist der Screen session von " + minecraftServer.getServerId() +" beigetreten");
                         CloudNet.getInstance().getScreenProvider().setMainServiceId(minecraftServer.getServiceId());
                     }
                     return;
@@ -106,9 +106,9 @@ public class CommandScreen extends Command {
                 break;
             default:
                 sender.sendMessage(
-                        "screen server (-s) | proxy (-p) <name> | The output of the console of the service is transferred to the console of this instance",
-                        "screen leave | The console output closes",
-                        "screen write <command> | You write a command directly into the console of the service"
+                        "screen server (-s) | proxy (-p) <name> | Der Log der aus Konsole des Services wird transferriert zu der Konsole dieser Instanz",
+                        "screen leave | Damit kannst du den Screen wieder verlassen",
+                        "screen write <command> | Damit kannst du in der Screen session schreiben in der du bist"
                 );
                 break;
         }

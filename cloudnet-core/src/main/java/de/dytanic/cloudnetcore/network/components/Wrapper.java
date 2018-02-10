@@ -227,7 +227,7 @@ public final class Wrapper
     public void startProxy(ProxyProcessMeta proxyProcessMeta)
     {
         sendPacket(new PacketOutStartProxy(proxyProcessMeta));
-        System.out.println("Proxy [" + proxyProcessMeta.getServiceId() + "] is now in " + serverId + " queue.");
+        System.out.println("Der Proxy [" + proxyProcessMeta.getServiceId() + "] befindet sich nun der Warteschlange von " + serverId);
 
         this.waitingServices.put(proxyProcessMeta.getServiceId().getServerId(), new Quad<>(proxyProcessMeta.getPort(), proxyProcessMeta.getMemory(), proxyProcessMeta.getServiceId(), null));
     }
@@ -235,7 +235,7 @@ public final class Wrapper
     public void startProxyAsync(ProxyProcessMeta proxyProcessMeta)
     {
         sendPacket(new PacketOutStartProxy(proxyProcessMeta, true));
-        System.out.println("Proxy [" + proxyProcessMeta.getServiceId() + "] is now in " + serverId + " queue.");
+        System.out.println("Der Proxy [" + proxyProcessMeta.getServiceId() + "] befindet sich nun der Warteschlange von " + serverId);
 
         this.waitingServices.put(proxyProcessMeta.getServiceId().getServerId(), new Quad<>(proxyProcessMeta.getPort(), proxyProcessMeta.getMemory(), proxyProcessMeta.getServiceId(), null));
     }
@@ -243,7 +243,7 @@ public final class Wrapper
     public void startGameServer(ServerProcessMeta serverProcessMeta)
     {
         sendPacket(new PacketOutStartServer(serverProcessMeta));
-        System.out.println("Server [" + serverProcessMeta.getServiceId() + "] is now in " + serverId + " queue.");
+        System.out.println("Der Server [" + serverProcessMeta.getServiceId() + "] befindet sich nun der Warteschlange von " + serverId);
 
         this.waitingServices.put(serverProcessMeta.getServiceId().getServerId(), new Quad<>(serverProcessMeta.getPort(), serverProcessMeta.getMemory(), serverProcessMeta.getServiceId(), serverProcessMeta.getTemplate()));
     }
@@ -251,7 +251,7 @@ public final class Wrapper
     public void startGameServerAsync(ServerProcessMeta serverProcessMeta)
     {
         sendPacket(new PacketOutStartServer(serverProcessMeta, true));
-        System.out.println("Server [" + serverProcessMeta.getServiceId() + "] is now in " + serverId + " queue.");
+        System.out.println("Der Server [" + serverProcessMeta.getServiceId() + "] befindet sich nun der Warteschlange von " + serverId);
 
         this.waitingServices.put(serverProcessMeta.getServiceId().getServerId(), new Quad<>(serverProcessMeta.getPort(), serverProcessMeta.getMemory(), serverProcessMeta.getServiceId(), serverProcessMeta.getTemplate()));
     }
@@ -259,7 +259,7 @@ public final class Wrapper
     public void startCloudServer(CloudServerMeta cloudServerMeta)
     {
         sendPacket(new PacketOutStartCloudServer(cloudServerMeta));
-        System.out.println("CloudServer [" + cloudServerMeta.getServiceId() + "] is now in " + serverId + " queue.");
+        System.out.println("Der CloudServer [" + cloudServerMeta.getServiceId() + "] befindet sich nun der Warteschlange von " + serverId);
 
         this.waitingServices.put(cloudServerMeta.getServiceId().getServerId(), new Quad<>(cloudServerMeta.getPort(), cloudServerMeta.getMemory(), cloudServerMeta.getServiceId(), cloudServerMeta.getTemplate()));
     }
@@ -267,7 +267,7 @@ public final class Wrapper
     public void startCloudServerAsync(CloudServerMeta cloudServerMeta)
     {
         sendPacket(new PacketOutStartCloudServer(cloudServerMeta, true));
-        System.out.println("CloudServer [" + cloudServerMeta.getServiceId() + "] is now in " + serverId + " queue.");
+        System.out.println("Der CloudServer [" + cloudServerMeta.getServiceId() + "] befindet sich nun der Warteschlange von " + serverId);
 
         this.waitingServices.put(cloudServerMeta.getServiceId().getServerId(), new Quad<>(cloudServerMeta.getPort(), cloudServerMeta.getMemory(), cloudServerMeta.getServiceId(), cloudServerMeta.getTemplate()));
     }

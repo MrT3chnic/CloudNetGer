@@ -40,7 +40,7 @@ public class CommandInstall extends Command {
                 }
                 if(args[0].equalsIgnoreCase("modules"))
                 {
-                    sender.sendMessage("Installable Modules:");
+                    sender.sendMessage("Installier bare Module:");
                     for(String module : webClient.getInstallableModules())
                     {
                         sender.sendMessage("- " + module);
@@ -64,9 +64,9 @@ public class CommandInstall extends Command {
                         URLConnection urlConnection = new URL(WebClient.DEFAULT_URL + "modules/" + args[1]).openConnection();
                         urlConnection.connect();
                         Files.copy(urlConnection.getInputStream(), Paths.get("modules/" + args[1] + ".jar"));
-                        sender.sendMessage("Module " + args[1] + " was successfully installed, please use the command \"reload modules\"");
+                        sender.sendMessage("Das Module " + args[1] + " wurde Erfolgreich installiert. führe den Befehl jetzt aus \"reload modules\"");
                     }catch (Exception ex){
-                        sender.sendMessage("Failed to download module \"" + args[1] + "\"");
+                        sender.sendMessage("Der Download ist Fehlgeschalgen von \"" + args[1] + "\"");
                     }
                 }
                 break;

@@ -27,20 +27,20 @@ public class CommandStatistic extends Command {
     {
         Document document = StatisticManager.getInstance().getStatistics();
         sender.sendMessage(
-                "CloudNet2 Statistics:",
+                "CloudNet2 Statistiken:",
                 " ",
-                "CloudStartups: " + StatisticManager.getInstance().getStatistics().getInt("cloudStartup"),
-                "Cloud online time: " + TimeUnit.MILLISECONDS.toMinutes(document.getInt("cloudOnlineTime")) + "min",
-                "Wrapper connections: " + document.getInt("wrapperConnections"),
-                "Highest server online count: " + document.getInt("highestServerOnlineCount"),
-                "Started servers: " + document.getLong("startedServers"),
+                "Wie oft die Cloud schon gestartet wurde: " + StatisticManager.getInstance().getStatistics().getInt("cloudStartup"),
+                "Wie lange die Cloud schon an ist: " + TimeUnit.MILLISECONDS.toMinutes(document.getInt("cloudOnlineTime")) + "Minuten",
+                "Wie oft sich der/die Wrapper schon Verbunden haben: " + document.getInt("wrapperConnections"),
+                "Wie viele Server höchsten schon Online waren: " + document.getInt("highestServerOnlineCount"),
+                "Wie viele Server schon gestartet wurden: " + document.getLong("startedServers"),
                 " ",
-                "Player Statistics:",
+                "Spieler Statistiken:",
                 " ",
-                "Registered: " + CloudNet.getInstance().getDbHandlers().getPlayerDatabase().getDatabase().size(),
-                "Highest online count: " + document.getInt("highestPlayerOnline"),
+                "Registierte Spieler: " + CloudNet.getInstance().getDbHandlers().getPlayerDatabase().getDatabase().size(),
+                "Höchste Speiler Anzahl: " + document.getInt("highestPlayerOnline"),
                 "Logins: " + document.getInt("playerLogin"),
-                "Command executions: " + document.getInt("playerCommandExecutions"),
+                "Wie viele Commands schon ausgeführt wurden: " + document.getInt("playerCommandExecutions"),
                 " "
         );
     }

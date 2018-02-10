@@ -80,7 +80,7 @@ public class ServerProcessQueue implements Runnable {
                     GameServer gameServer = null;
                     try
                     {
-                        System.out.println("Fetching entry [" + serverProcess.getMeta().getServiceId() + "]");
+                        System.out.println("Hole eintrag von [" + serverProcess.getMeta().getServiceId() + "]");
                         gameServer = new GameServer(serverProcess, ServerStage.SETUP, CloudNetWrapper.getInstance().getServerGroups().get(serverProcess.getMeta().getServiceId().getGroup()));
                         if(gameServer.bootstrap())
                         {
@@ -90,7 +90,7 @@ public class ServerProcessQueue implements Runnable {
                         }
                     } catch (Exception e)
                     {
-                        System.out.println("Failed to bootstrap the game-server " + serverProcess.getMeta().getServiceId().toString());
+                        System.out.println("Fehler beim starten des Game-Servers " + serverProcess.getMeta().getServiceId().toString());
                         e.printStackTrace();
                         this.servers.add(serverProcess);
                     }
@@ -126,14 +126,14 @@ public class ServerProcessQueue implements Runnable {
 
                     try
                     {
-                        System.out.println("Fetching entry [" + gameServer.getServiceId() + "]");
+                        System.out.println("Hole eintrag von [" + gameServer.getServiceId() + "]");
                         if(!gameServer.bootstrap())
                         {
                             this.proxys.add(serverProcess);
                         }
                     } catch (Exception e)
                     {
-                        System.out.println("Failed to bootstrap the proxy-server " + gameServer.toString());
+                        System.out.println("Fehler beim starten des Proxy-Servers " + gameServer.toString());
                         e.printStackTrace();
                         this.proxys.add(serverProcess);
                     }

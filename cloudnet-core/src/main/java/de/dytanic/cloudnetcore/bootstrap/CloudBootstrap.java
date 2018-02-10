@@ -107,7 +107,7 @@ public final class CloudBootstrap {
 
         if (!optionSet.has("noconsole"))
         {
-            System.out.println("Use the command \"help\" for further information!");
+            System.out.println("Benutze den command \"help\" für Informationen!");
             String commandLine;
             try {
                 while (true)
@@ -129,7 +129,7 @@ public final class CloudBootstrap {
 
                         if (!cloudNetCore.getCommandManager().dispatchCommand(commandLine))
                         {
-                            System.out.println("Command not found. Use the command \"help\" for further information!");
+                            System.out.println("Command nicht gefunden. Benutze den command \"help\" für Informationen!");
                         }
                     }
             }catch (Exception ex) {

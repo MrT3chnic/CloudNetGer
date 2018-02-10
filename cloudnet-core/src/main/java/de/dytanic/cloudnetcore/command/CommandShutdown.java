@@ -37,10 +37,10 @@ public class CommandShutdown extends Command {
                         {
                             wrapper.writeCommand("stop");
                         }
-                        sender.sendMessage("Wrapper " + args[1] + " was stopped");
+                        sender.sendMessage("Wrapper " + args[1] + " wird gestoppt");
                     } else
                     {
-                        sender.sendMessage("Wrapper doesn't exist");
+                        sender.sendMessage("Der Wrapper existiert nicht!");
                     }
                     return;
                 }
@@ -48,7 +48,7 @@ public class CommandShutdown extends Command {
                 {
                     if (CloudNet.getInstance().getServerGroups().containsKey(args[1]))
                     {
-                        System.out.println("All servers of the server group " + args[1] + " will be stopped...");
+                        System.out.println("Alle Server aus der Gruppe " + args[1] + " werden gestoppt!");
                         CollectionWrapper.iterator(CloudNet.getInstance().getServers(args[1]), new Runnabled<MinecraftServer>() {
                             @Override
                             public void run(MinecraftServer obj)
@@ -61,7 +61,7 @@ public class CommandShutdown extends Command {
                     }
                     if (CloudNet.getInstance().getProxyGroups().containsKey(args[1]))
                     {
-                        System.out.println("All proxies of the proxy group " + args[1] + " will be stopped");
+                        System.out.println("Alle Proxies aus der Gruppe" + args[1] + " werden gestoppt!");
                         CollectionWrapper.iterator(CloudNet.getInstance().getProxys(args[1]), new Runnabled<ProxyServer>() {
                             @Override
                             public void run(ProxyServer obj)
@@ -82,7 +82,7 @@ public class CommandShutdown extends Command {
                     if (proxyServer != null)
                     {
                         proxyServer.getWrapper().stopServer(proxyServer);
-                        sender.sendMessage("Server " + args[1] + " was stopped!");
+                        sender.sendMessage("Der Server " + args[1] + " wird gestoppt!");
                     } else
                     {
                         CloudServer proxyServers = CloudNet.getInstance().getCloudGameServer(args[1]);
@@ -92,7 +92,7 @@ public class CommandShutdown extends Command {
                         }
                         else
                         {
-                            sender.sendMessage("The server doesn't exist");
+                            sender.sendMessage("Der Server existiert nicht!");
                         }
                     }
                     return;
@@ -103,10 +103,10 @@ public class CommandShutdown extends Command {
                     if (proxyServer != null)
                     {
                         proxyServer.getWrapper().stopProxy(proxyServer);
-                        sender.sendMessage("Proxy server " + args[1] + " was stopped!");
+                        sender.sendMessage("Der Proxy Server " + args[1] + " wird gestoppt!");
                     } else
                     {
-                        sender.sendMessage("The proxy doesn't exist");
+                        sender.sendMessage("Der Proxy existiert nicht!");
                     }
                     return;
                 }
@@ -114,10 +114,10 @@ public class CommandShutdown extends Command {
             default:
                 sender.sendMessage(
                         " ",
-                        "shutdown WRAPPER <wrapper-id> | Stops a wrapper service with the respective \"wrapper ID\"",
-                        "shutdown GROUP <group-id> | Stops a group of either proxy or servergroup, and restarts it by default",
-                        "shutdown PROXY <proxy-id> | Stops a BungeeCord service and after preconfiguring the group, a new one is started",
-                        "shutdown SERVER <server-id> | Stops a Minecraft server service and after preconfiguring the group, a new one is started",
+                        "shutdown WRAPPER <wrapper-id> | Stoppt einen Wrapper mit der entsprechenden \"Wrapper ID\"",
+                        "shutdown GROUP <group-id> | Stoppt eine Gruppe von einem Proxy oder einer Servergruppe und startet sie standardmäßig neu",
+                        "shutdown PROXY <proxy-id> | Stoppt den BungeeCord udn startet in wieder.",
+                        "shutdown SERVER <server-id> | Stoppt den MineCraft Server und startet ihn Wieder.",
                         " "
                 );
                 break;

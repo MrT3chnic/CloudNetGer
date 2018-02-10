@@ -38,10 +38,10 @@ public final class CommandCopy extends Command {
                 if (minecraftServer != null)
                 {
                     minecraftServer.getWrapper().copyServer(minecraftServer.getServerInfo());
-                    sender.sendMessage("The server " + args[0] + " was copied");
+                    sender.sendMessage("Der Server " + args[0] + " wurde kopiert.");
                 } else
                 {
-                    sender.sendMessage("The specified server doesn't exist");
+                    sender.sendMessage("Der Server exisitiert nicht!");
                 }
             }
             break;
@@ -73,18 +73,18 @@ public final class CommandCopy extends Command {
                             }
                         }
                         minecraftServer.getWrapper().copyServer(minecraftServer.getServerInfo());
-                        sender.sendMessage("Creating Template \"" + template.getName() + "\" for " + serverGroup.getName() + " and copying server " + minecraftServer.getServiceId().getServerId() + "...");
+                        sender.sendMessage("Erstelle Template \"" + template.getName() + "\" für " + serverGroup.getName() + " und kopiere den Server " + minecraftServer.getServiceId().getServerId() + "...");
                     } else
                     {
-                        sender.sendMessage("The group doesn't exist");
+                        sender.sendMessage("Die Gruppe existiert nicht!");
                     }
                     return;
                 }
             }
             break;
             default:
-                sender.sendMessage("copy <server> | Copies the current server as a local template to the wrapper of the instance");
-                sender.sendMessage("copy <server> <template> | Copies the current server as a local template to the wrapper of the instance which you set");
+                sender.sendMessage("copy <server> | Kopiert den Server in das Template was gestartet ist.");
+                sender.sendMessage("copy <server> <template> | Kopiert den Server in das Template von der Gruppe was du willst.");
                 break;
         }
     }

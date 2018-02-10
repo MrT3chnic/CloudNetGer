@@ -38,11 +38,11 @@ public class CommandDelete extends Command {
                         {
                             minecraftServer.getWrapper().stopServer(minecraftServer);
                         }
-                        sender.sendMessage("The group was successfully deleted");
+                        sender.sendMessage("Die Gruppe wurde Erfolgreich gelöscht.");
                     }
                     else
                     {
-                        sender.sendMessage("The server group doesn't exists");
+                        sender.sendMessage("Die Gruppe existiert nicht!");
                     }
                 }
                 break;

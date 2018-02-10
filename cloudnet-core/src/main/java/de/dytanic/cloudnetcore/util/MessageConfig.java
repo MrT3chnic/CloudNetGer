@@ -23,15 +23,15 @@ public class MessageConfig {
         {
             new Document()
                     .append("prefix", "§bCloud §8|§7 ")
-                    .append("kick-maintenance", "§cThe network is currently in maintenance mode")
-                    .append("full-join", "§cThe Network is full! You can join with a higher permissions!")
-                    .append("hubCommandNoServerFound", "§cNo server was found, please wait")
-                    .append("joinpower-deny", "You don't have any permissions to enter this server")
-                    .append("server-group-maintenance-kick", "§cThis group is currently in maintenance mode!")
-                    .append("mob-selector-maintenance-message", "§cThis group is currently in maintenance mode, please wait, before you can play!")
-                    .append("notify-message-server-add", "§cThe server %server% is starting now...")
-                    .append("notify-message-server-remove", "§cThe server %server% is now stopping!")
-                    .append("hub-already", "§cYou are already connected to a hub server")
+                    .append("kick-maintenance", "§cDas Netzwerk befindet sich gerade in den Wartungen")
+                    .append("full-join", "§cDas Netzwerk ist voll, schau später mal vorbei.")
+                    .append("hubCommandNoServerFound", "§cEs wurde kein Server gefunden, Bitte warte kurz.")
+                    .append("joinpower-deny", "§cDu kannst da nicht rauf. Dazu hast du zuwenig rechte")
+                    .append("server-group-maintenance-kick", "§cDie Gruppe befindet sich monetan in den Wartungen!")
+                    .append("mob-selector-maintenance-message", "§cDie Gruppe befindet sich monetan in den Wartungen, bitte warte, bevor du Spielen kannt!")
+                    .append("notify-message-server-add", "§8Der Server §a%server% §8startet jetzt.....")
+                    .append("notify-message-server-remove", "§8Der Server §c%server% §8stopt jetzt!")
+                    .append("hub-already", "§cDu befindest dich bereits auf einem Lobby-Server.")
                     .saveAsConfig(path);
         }
     }

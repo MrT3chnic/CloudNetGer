@@ -32,7 +32,7 @@ public class CloudNetClientAuth
     @Override
     public String getName()
     {
-        return "Unknown-Connection";
+        return "Unbekannte Verbindung";
     }
 
     @Override

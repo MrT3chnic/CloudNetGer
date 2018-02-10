@@ -120,7 +120,7 @@ public class CloudGameServer implements ServerDispatcher {
                             urlConnection.connect();
                             System.out.println("Downloading " + url.getName() + ".jar");
                             Files.copy(urlConnection.getInputStream(), Paths.get("local/cache/web_plugins/" + url.getName() + ".jar"));
-                            System.out.println("Download was completed successfully!");
+                            System.out.println("Download wwar Erfolgreich!");
                         } catch (Exception ex)
                         {
                             ex.printStackTrace();
@@ -162,7 +162,7 @@ public class CloudGameServer implements ServerDispatcher {
                 connection.connect();
                 Files.copy(connection.getInputStream(), Paths.get(path + "/cauldron.zip"));
                 ((HttpURLConnection) connection).disconnect();
-                System.out.println("Download was completed successfully!");
+                System.out.println("Download war Erfolgreich!");
 
                 ZipFile zip = new ZipFile(file);
                 Enumeration<? extends ZipEntry> entryEnumeration = zip.entries();
@@ -206,7 +206,7 @@ public class CloudGameServer implements ServerDispatcher {
                     connection.connect();
                     System.out.println("Downloading glowstone.jar...");
                     Files.copy(connection.getInputStream(), path);
-                    System.out.println("Download was completed successfully");
+                    System.out.println("Download war Erfolgreich");
                     ((HttpURLConnection) connection).disconnect();
                 } catch (Exception ex)
                 {
@@ -272,7 +272,7 @@ public class CloudGameServer implements ServerDispatcher {
                     url.connect();
                     Files.copy(url.getInputStream(), Paths.get("local/viaversion.jar"));
                     ((HttpURLConnection) url).disconnect();
-                    System.out.println("Download was completed successfully!");
+                    System.out.println("Download war Erfolgreich!");
                 } catch (Exception ex)
                 {
 
@@ -363,7 +363,7 @@ public class CloudGameServer implements ServerDispatcher {
             commandBuilder.append(command).append(" ");
         }
 
-        commandBuilder.append("-XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:MaxPermSize=256M -XX:-UseAdaptiveSizePolicy -Dio.netty.leakDetectionLevel=DISABLED -Dfile.encoding=UTF-8 -Dio.netty.maxDirectMemory=0 -Dcom.mojang.eula.agree=true -Dio.netty.recycler.maxCapacity=0 -Dio.netty.recycler.maxCapacity.default=0 -Djline.terminal=jline.UnsupportedTerminal -Xmx" +
+        commandBuilder.append("-XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:-UseAdaptiveSizePolicy -Dio.netty.leakDetectionLevel=DISABLED -Dfile.encoding=UTF-8 -Dio.netty.maxDirectMemory=0 -Dcom.mojang.eula.agree=true -Dio.netty.recycler.maxCapacity=0 -Dio.netty.recycler.maxCapacity.default=0 -Djline.terminal=jline.UnsupportedTerminal -Xmx" +
                 cloudServerMeta.getMemory() + "M -jar ");
 
         switch (cloudServerMeta.getServerGroupType())
@@ -447,7 +447,7 @@ public class CloudGameServer implements ServerDispatcher {
 
         CloudNetWrapper.getInstance().getCloudservers().remove(getServiceId().getServerId());
         CloudNetWrapper.getInstance().getNetworkConnection().sendPacket(new PacketOutRemoveCloudServer(serverInfo));
-        System.out.println("Server " + toString() + " was stopped");
+        System.out.println("Der Server " + toString() + " wurde gestoppt");
 
         try
         {

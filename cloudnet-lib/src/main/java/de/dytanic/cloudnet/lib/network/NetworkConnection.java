@@ -46,7 +46,7 @@ public class NetworkConnection implements PacketSender {
     @Override
     public String getName()
     {
-        return "Network-Connector";
+        return "Netzwerk-Connector";
     }
 
     public NetworkConnection(ConnectableAddress connectableAddress)
@@ -98,7 +98,7 @@ public class NetworkConnection implements PacketSender {
         } catch (Exception ex)
         {
             connectionTrys++;
-            System.out.println("Failed to connect... [" + connectionTrys + "]");
+            System.out.println("Fehler beim Verbinden... [" + connectionTrys + "]");
             System.out.println("Error: " + ex.getMessage());
 
             if(eventLoopGroup != null)

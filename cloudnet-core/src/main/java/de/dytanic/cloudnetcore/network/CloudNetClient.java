@@ -42,12 +42,12 @@ public class CloudNetClient
         this.networkComponent.setChannel(channel);
         this.channel = channel;
 
-        System.out.println("Channel connected [" + channel.remoteAddress().toString() + "/serverId=" + networkComponent.getServerId() + "]");
+        System.out.println("Der Channel ist verbunden mit [" + channel.remoteAddress().toString() + "/serverId=" + networkComponent.getServerId() + "]");
 
         if(networkComponent instanceof Wrapper)
         {
             StatisticManager.getInstance().wrapperConnections();
-            System.out.println("Wrapper [" + networkComponent.getServerId() + "] is connected.");
+            System.out.println("Der Wrapper [" + networkComponent.getServerId() + "] ist Verbunden mit dem Master.");
             CloudNet.getInstance().getEventManager().callEvent(new WrapperChannelInitEvent((Wrapper) networkComponent, channel));
             CloudNet.getInstance().getDbHandlers().getWrapperSessionDatabase().addSession(new WrapperSession(UUID.randomUUID(), ((Wrapper)networkComponent).getNetworkInfo(), System.currentTimeMillis()));
             ((Wrapper)networkComponent).updateWrapper();
@@ -80,7 +80,7 @@ public class CloudNetClient
     {
         if((!channel.isActive() || !channel.isOpen() || !channel.isWritable()))
         {
-            System.out.println("Channel disconnected [" + channel.remoteAddress().toString() + "/serverId=" + networkComponent.getServerId() + "]");
+            System.out.println("Der Channel ist nun getrennt von [" + channel.remoteAddress().toString() + "/serverId=" + networkComponent.getServerId() + "]");
             ctx.close().syncUninterruptibly();
             if(networkComponent instanceof MinecraftServer)
             {
@@ -132,7 +132,7 @@ public class CloudNetClient
 
         if(!(obj instanceof Packet)) return;
 
-        CloudNet.getLogger().debug("Receiving Packet on " + getChannel().remoteAddress().toString());
+        CloudNet.getLogger().debug("Empfange Packet auf" + getChannel().remoteAddress().toString());
         Packet packet = (Packet)obj;
         CloudNet.getInstance().getPacketManager().dispatchPacket(packet, networkComponent);
     }

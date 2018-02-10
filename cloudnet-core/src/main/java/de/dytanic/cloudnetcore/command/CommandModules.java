@@ -22,10 +22,10 @@ public class CommandModules extends Command {
     @Override
     public void onExecuteCommand(CommandSender sender, String[] args)
     {
-        sender.sendMessage("Running modules:", " ");
+        sender.sendMessage("Laufende module:", " ");
         for(Module module : CloudNet.getInstance().getModuleManager().getModules())
         {
-            sender.sendMessage(module.getName() + " " + module.getModuleConfig().getVersion() + " by " + module.getModuleConfig().getAuthor() + "");
+            sender.sendMessage(module.getName() + " " + module.getModuleConfig().getVersion() + " von " + module.getModuleConfig().getAuthor() + "");
         }
     }
 }
